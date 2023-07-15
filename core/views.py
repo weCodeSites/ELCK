@@ -12,14 +12,15 @@ def contact(request):
     return render(request,"core/contact.html")
 
 def member_join(request):
-    phonenumber=request.POST.get('phonenumber')
-    county=request.POST.get('county')
-    firstname=request.POST.get('firstname')
-    lastname=request.POST.get('lastname')
-    college=request.POST.get("college")
-    member=Members(phonenumber=phonenumber,county=county,firstname=firstname,lastname=lastname,college= college)
-    member.save()
-    messages.success(request,"member added successfully")
+    if request.method =="POST":
+        phonenumber=request.POST.get('phonenumber')
+        county=request.POST.get('county')
+        firstname=request.POST.get('firstname')
+        lastname=request.POST.get('lastname')
+        college=request.POST.get("college")
+        member=Members(phonenumber=phonenumber,county=county,firstname=firstname,lastname=lastname,college= college)
+        member.save()
+        messages.success(request,"member added successfully")
     #return redirect("core:join")
     return render(request,"core/form.html")
     
