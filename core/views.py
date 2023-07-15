@@ -18,7 +18,7 @@ def member_join(request):
     lastname=request.POST.get('lastname')
     college=request.POST.get("college")
     Members(phonenumber=phonenumber,county=county,firstname=firstname,lastname=lastname,college= college)
-    messages.succes("member added successfully")
+    messages.success("member added successfully")
     #return redirect("core:join")
     return render(request,"core/form.html")
     
