@@ -55,4 +55,5 @@ class Members(models.Model):
     lastname=models.CharField(max_length=200)
     phonenumber=models.IntegerField()
     county=models.TextField(choices=COUNTY_CHOICES,default="")
+    college=models.TextField(default="")
 

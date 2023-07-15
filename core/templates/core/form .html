@@ -6,14 +6,14 @@
     <title>Join Us</title>
 </head>
 <body>
-    <form action="" method="post">
-        <input type="text" name="first name" placeholder="Your name">
-        <input type="text" name="last name" placeholder="Your name">
+    <form action="/join" method="post">
+        {% csrf_token %}
+        <input type="text" name="firstname" placeholder="Your name">
+        <input type="text" name="lastname" placeholder="Your name">
         <input type="text" name="college" placeholder="Your college" >
         <input type="text" name="county" placeholder="Your county" >
-        
+        <input type="text" name="phonenumber" placeholder="+254...." >
         <input type="submit" value="Join us">
-
-      </form>
+    </form>
 </body>
 </html>
