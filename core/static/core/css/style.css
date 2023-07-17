@@ -32,6 +32,24 @@ basic
      box-shadow: 0 15px 25px rgba(0,0,0,.6);
      border-radius: 10px;
    }
+   form {
+     width: 500px;
+     margin: 0 auto;
+     padding: 20px;
+     border: 1px solid #ccc;
+   }
+   input {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid #ccc;
+   }
+   input[type="submit"] {
+     background-color: #000;
+     color: #fff;
+     padding: 10px 20px;
+     border: none;
+     cursor: pointer;
+   }
    
 body {
      color: #666666;
