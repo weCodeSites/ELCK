@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>elcz ministries</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+      <!-- responsive-->
+      <link rel="stylesheet" href="{% static 'core/css/responsive.css' %}">
+      <!-- awesome fontfamily -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         *{
+            margin: 0;
+            padding: 0;
+         }
+         .gallerycont{
+            max-width: 1224px;
+            width: 90%;
+            margin: auto;
+            padding: 40px 0;
+         }
+         .photogallery{
+            display: flex;
+            gap: 20px;
+         }
+         .gallerycolumn{
+            display: flex;
+            flex-direction: column;
+            flex-flow: dense;
+            gap: 20px;
+         }
+         .photo img{
+            width: 100%;
+            height: 100%;
+            border-radius: 7px;
+            object-fit: cover;
+            border:1px solid red;
+         }
+         @media(max-width:768px){
+            .photogallery{
+               flex-direction: column;
+            }
+         }
+         .end{
+            bottom:auto;
+         }
+         ul li{
+            display: flex;
+            gap: 30px;
+            margin: 30px;
+            left: 40%;
+         }
+         
+
+      </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page body ody">
+      <!-- loader  -->
+      
+      <!-- end loader -->
+      <div id="mySidepanel" class="sidepanel">
+         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+         <a class="active" href="{%url 'core:home'%}">Home</a>
+         <a href="{%url 'core:devotion'%}">weekly devotions</a>
+         <a href="{%url 'core:events'%}">Events</a>
+         <a href="{%url 'core:gallery'%}">Gallery</a>
+      </div>
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="head-top">
+            <div class="container-fluid">
+               <div class="row d_flex">
+                  <div class="col-sm-3">
+                     <div class="logo">
+                        <a href="{%url 'core:home'%}"><img src=" " /></a>
+                     </div>
+                  </div>
+                  <div class="col-sm-9">
+                     <ul class="email text_align_right">
+                        <li><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
+                        <li> <button class="openbtn" onclick="openNav()"><img src="{% static 'core/images/menu_btn.png' %}"></button></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- end header -->
+      <div class="gallerycont">
+         <title>OUR GALLERY</title>
+         
+         <div class="photogallery">
+            {% for i in images%}
+                  {% if forloop.counter0|divisibleby:3 %}
+                     <div class="gallerycolumn"></div>
+                  {% endif %}
+            <div class="gallerycolumn">
+               <div class="photo">
+                  <img src="{{i.image.url}}" alt="">
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+         
+      </div>
+     
+      <div class="end bg-dark" style="bottom:0;">
+         <ul class="list-unstyled ">
+            <li class="text-light">Home</li>
+            <li class="text-light">Devotions</li>
+            <li class="text-light">Events</li>
+         </ul>
+      </div>
+     
+      <!-- Javascript files-->
+      
+      <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+      <script src="{% static 'core/js/custom.js' %}"></script>
+   </body>
+</html>

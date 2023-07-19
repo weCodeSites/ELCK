@@ -24,9 +24,92 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid black;
+            border-radius: 5px;
+            transform: translate(-50%, -50%);
+          
+            left: 50%;
+        }
+    
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    
+        .form-input,
+        .form-submit {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+    
+        .form-submit {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+    
+        .form-submit:hover {
+            background-color: #45a049;
+        }
+        .about-card:hover {
+         transform: scale(1.05);
+         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+       }
+       
+       .about-card-header {
+         font-size: 24px;
+         font-weight: bold;
+         margin-bottom: 20px;
+         text-align: center;
+       }
+       
+       .about-card-body {
+         font-size: 16px;
+         line-height: 1.6;
+         font-family: Georgia, 'Times New Roman', Times, serif;
+         color: #333333;
+         margin-bottom: 20px;
+       }
+       @media screen and (max-width: 600px) {
+         .about-card {
+           width: 90%;
+
+         }
+      }
+      
+      .about-card {
+         width: fit-content;
+         height:fit-content;
+         margin-top: 20px;;
+         padding: 30px;
+         border-radius: 10px;
+         background-color: #ffffff;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         transition: transform 0.3s ease;
+       }
+       .closeabt{
+         top: auto;
+         right: auto;
+         background-color: red;
+         border-radius: 10px;
+         padding: 10px;
+       }
+       
+      </style>
    </head>
    <!-- body -->
-   <body class="main-layout">
+   <body class="main-layout body">
       <!-- loader  -->
       <div class="loader_bg">
          <div class="loader"><img src="{% static 'core/images/loading.gif' %}" alt="" /></div>
@@ -35,9 +118,9 @@
       <div id="mySidepanel" class="sidepanel">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
          <a class="active" href="{%url 'core:home'%}">Home</a>
-         <a href="{%url 'core:about'%}">About</a>
-         <a href="{%url 'core:about'%}">Programmes</a>
-         <a href="{%url 'core:contact'%}">Events</a>
+         <a href="{%url 'core:devotion'%}">weekly devotions</a>
+         <a href="{%url 'core:events'%}">Events</a>
+         <a href="{%url 'core:gallery'%}">Gallery</a>
       </div>
       <!-- header -->
       <header>
@@ -61,7 +144,11 @@
             </div>
          </div>
       </header>
-      <!-- sports -->
+
+         {% comment %} messages {% endcomment %}
+         {% include "core/messages.html" %}
+      {% comment %} about info {% endcomment %}
+               
       <div class="sports">
          <div class="container">
             <div class="row">
@@ -71,7 +158,16 @@
                      <p>"Bringing Christ to the people and people to Christ through the means of grace"
 
                      </p>
-                     <a class="read_more" href="sports.html">Read More</a>
+                     <button id="us" class="read_more">about</button>
+                     <div class="about-card" style="display:none;" id="aboutcard">
+                        <div class="about-card-header">About Campus ministries</div>
+                           <div class="about-card-body">
+                              <p class="text-danger">Evangelical Lutheran Church In Kenya Lutheran Campus Ministry (LCM)</p><hr>
+                              <p>"The Lutheran campus ministry LCM is a recent joint initiative of the Evangelical Lutheran Church in Kenya and Swedish Lutheran Evangelical association in Finland. This ministry endeavours to reach out especially to the ELCK students in their higher learning institution's environments i.e colleges and universities. The need and thought for such a ministry has existed for a long time due to the enormous challenges that the students go through when they leave their home environments. The focus of the ministry is Gospel centred there by bringing Christ to the people and people to Christ through the means of grace.</p>
+                              <button class="read_more" id="closeabtinfo">Done </button>
+                           </div>
+                        </div>
+                     </div>
                   </div>
                </div>
             </div>
@@ -168,7 +264,7 @@
       <!-- our_club -->
       <div class="our_club">
          <div class="container">
-            <div class="row">
+            <div class="row" style="position:relative;">
                <div class="col-md-10 offset-md-1">
                   <div class="titlepage text_align_center">
                      <h2>Join us</h2>
@@ -178,12 +274,42 @@
                <div class="col-md-12">
                   <div class="club_btn">
                      <a class="read_more " href="Javascript:void(0)">Donate</a>
-                     <a class="read_more" href="{% url 'core:join' %}">Join us</a>
+                     {% comment %} <a class="read_more" href="#" >Join us</a> {% endcomment %}
+                     <button id="joinus" class="read_more" id="joinus">join us</button>
+                           {% include "core/messages.html" %}
+                    <div class="border shadow p-2 m-2  col-md-6  joindiv" style="display:none;" id="joindiv">
+                     <form action="{% url 'core:join' %}" method="POST" id="join_form" class="join_form p-4 m-1 border " style="display:none;justify-content:center;">
+                        {% csrf_token %}
+                        <h5 class="text-center text-danger">Join us today</h5>
+                        <label for="id_college" class="form-label">College:</label>
+                        <input type="text" id="id_college" name="college" maxlength="100" required class="form-input" placeholder="eg.university or college e.t.c">
+                  
+                        <label for="id_firstname" class="form-label">First Name:</label>
+                        <input type="text" id="id_firstname" name="firstname" maxlength="100" required class="form-input" placeholder="">
+                  
+                        <label for="id_lastname" class="form-label">Last Name:</label>
+                        <input type="text" id="id_lastname" name="lastname" maxlength="100" required class="form-input" placeholder="">
+                  
+                        <label for="id_phonenumber" class="form-label">Phone Number:</label>
+                        <input type="text" id="id_phonenumber" name="phonenumber" maxlength="20" required class="form-input" placeholder="e.g 254.....">
+         
+                        <label for="id_county" class="form-label">county:</label>
+                        <input type="text" id="id_county" name="county" maxlength="20" required class="form-input" placeholder="enter your county">
+                  
+                        <button type="submit" class="form-submit">Submit</button>
+                     </form>
+                  </div>
+                     
+                     {% comment %} {% url 'core:join' %} {% endcomment %}
+                     
                   </div>
                </div>
+               {% comment %}  {% endcomment %}
+
             </div>
          </div>
       </div>
+      
       <!-- end our_club -->
       <!-- footer -->
       <footer>
@@ -226,18 +352,60 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-8 offset-md-2">
-                        <p>© 2020 All Rights Reserved.</p>
+                        <p>© 2023 All Rights Reserved.</p>
                      </div>
                   </div>
                </div>
             </div>
          </div>
       </footer>
+      <script>
+         let join_form=document.getElementById("join_form")
+         join_form.style.display="none"
+         document.getElementById("joinus").addEventListener("click",function(e){
+            e.preventDefault()
+            if (document.getElementById("join_form").style.display === 'none') {
+               document.getElementById("join_form").style.display = 'block';
+               document.getElementById("joindiv").style.display="block";
+               document.getElementById("joinus").innerText="Close"
+            } else {
+               document.getElementById("join_form").style.display = 'none';
+               document.getElementById("joindiv").style.display="none";
+               document.getElementById("joinus").innerText="join us";
+            }
+            
+         })
+         document.getElementById("joinus").addEventListener("submit",function(e){
+            e.preventDefault();
+            document.getElementById("join_form").style.display="none";
+            document.getElementById("joindiv").style.display="none";
+         });
+         let about=document.getElementById("us");
+         about.addEventListener("click",function(){
+            if(document.getElementById("aboutcard").style.display==="block"){
+               setTimeout(function(){
+                  document.getElementById("aboutcard").style.display="none";
+                  document.getElementById("us").innerHTML="About us";
+               },3000);
+            }
+            else{
+               document.getElementById("aboutcard").style.display="block";
+               document.getElementById("us").innerHTML="Close about";
+            }
+            
+         })
+         let closeabt=document.getElementById("closeabtinfo").addEventListener("click",()=>{
+            document.getElementById("aboutcard").style.display="none";
+            document.getElementById("us").innerHTML="About us";
+         });
+      
+      </script>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="{% static 'core/js/jquery.min.js' %}"></script>
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
-      <script src="{% static 'core/js/jquery-3.0.0.min.js' %}"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="{% static 'core/js/custom.js' %}"></script>
    </body>
 </html>
