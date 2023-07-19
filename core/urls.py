@@ -12,7 +12,9 @@ urlpatterns = [
 
     path("devotion/",views.devotions,name="devotion"),
     path("gallery/",views.gallery,name="gallery"),
-    path("events/",views.events,name="events")
+    path("events/",views.events,name="events"),
+    path("donate/",views.donations,name="donate"),
+    
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # path("about/",views.about,name="about"),
 #path("join/",views.member_join,name="join")

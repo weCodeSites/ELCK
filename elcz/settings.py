@@ -29,12 +29,13 @@ SECRET_KEY ="django-insecure-_5u_cg72sg(9c1slro)gy!mo%t&mzgqcxubh0ry0cmzaqc6dme"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['campus-ministry.onrender.com']
+ALLOWED_HOSTS = ['campus-ministry.onrender.com','127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

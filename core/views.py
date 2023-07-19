@@ -51,3 +51,6 @@ def gallery(request):
 def devotions(request):
     devotions=WeeklyDevotion.objects.all()
     return render(request,"core/devotion.html")
+
+def donations(request):
+    return render(request,"core/donate.html")
