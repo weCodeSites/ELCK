@@ -28,7 +28,7 @@ import MySQLdb
 from dotenv import load_dotenv
 # pymysql.install_as_MySQLdb()
 load_dotenv()
-SECRET_KEY =os.environ.get("SECURITY_KEY")
+SECRET_KEY =os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
