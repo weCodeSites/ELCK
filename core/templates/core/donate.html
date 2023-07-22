@@ -28,78 +28,197 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
    </head>
    <style>
-    .donate{
-       background-color: black;
-        background-position: center;
-        background-repeat: no-repeat;
-
-    }
-    .end{
-        bottom:0%;
-        padding: 10px;
-        margin: 20px;
-        display: flex;
-    }
+      #mform{
+         display: none;
+      }
+      *{
+         justify-content: center;
+      }
+      h4{
+         font-size: medium;
+         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      .card-title {
+         color: #262626;
+         font-size: 1.5em;
+         line-height: normal;
+         font-weight: 700;
+         margin-bottom: 0.5em;
+       }
+       
+       .small-desc {
+         font-size: 1em;
+         font-weight: 400;
+         line-height: 1.5em;
+         color: #452c2c;
+       }
+       
+       .small-desc {
+         font-size: 1em;
+       }
+       
+       .go-corner {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         position: absolute;
+         width: 2em;
+         height: 2em;
+         overflow: hidden;
+         top: 0;
+         right: 0;
+         background: linear-gradient(135deg, #6293c8, #384c6c);
+         border-radius: 0 4px 0 32px;
+       }
+       
+       .go-arrow {
+         margin-top: -4px;
+         margin-right: -4px;
+         color: white;
+         font-family: courier, sans;
+       }
+       
+       .card {
+         display: none;
+         position: relative;
+         max-width: 300px;
+         max-height: 320px;
+         background-color: #f2f8f9;
+         border-radius: 10px;
+         padding: 2em 1.2em;
+         margin: 12px;
+         text-decoration: none;
+         z-index: 0;
+         overflow: hidden;
+         background: linear-gradient(to bottom, #c3e6ec, #a7d1d9);
+         font-family: Arial, Helvetica, sans-serif;
+       }
+       #card{
+         display: none;
+       }
+       
+       .card:before {
+         content: '';
+         position: absolute;
+         z-index: -1;
+         top: -16px;
+         right: -16px;
+         background: linear-gradient(135deg, #364a60, #384c6c);
+         height: 32px;
+         width: 32px;
+         border-radius: 32px;
+         transform: scale(1);
+         transform-origin: 50% 50%;
+         transition: transform 0.35s ease-out;
+       }
+       
+       .card:hover:before {
+         transform: scale(28);
+       }
+       
+       .card:hover .small-desc {
+         transition: all 0.5s ease-out;
+         color: rgba(255, 255, 255, 0.8);
+       }
+       
+       .card:hover .card-title {
+         transition: all 0.5s ease-out;
+         color: #ffffff;
+       }
+       
    </style>
-   <!-- body -->
-   <body class="main-layout inner_page donate">
-      <!-- loader  -->
-      
-      <!-- end loader -->
-      <div id="mySidepanel" class="sidepanel">
-         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a class="active" href="{%url 'core:home'%}">Home</a>
-         <a href="{%url 'core:devotion'%}">weekly devotions</a>
-         <a href="{%url 'core:events'%}">Events</a>
-         <a href="{%url 'core:gallery'%}">Gallery</a>
-      </div>
-      <!-- header -->
-      <header>
-         <!-- header inner -->
-         <div class="head-top">
-            <div class="container-fluid">
-               <div class="row d_flex">
-                  <div class="col-sm-3">
-                     <div class="logo">
-                        <a href="{%url 'core:home'%}"><img src=" " /></a>
-                     </div>
-                  </div>
-                  <div class="col-sm-9">
-                     <ul class="email text_align_right">
-                        <li><a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                        <li> <button class="openbtn" onclick="openNav()"><img src="{% static 'core/images/menu_btn.png' %}"></button></li>
-                     </ul>
-                  </div>
-               </div>
-            </div>
+
+   <body class="body"> 
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <div class="container-fluid">
+           <a class="navbar-brand " href="#">campus ministry</a>
+           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+           </button>
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+               </li>
+               <li class="nav-item">
+                 <a class="nav-link" href="#">Events</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="#">Weekly Devotion</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Gallery</a>
+                </li>
+             </ul>
+           </div>
          </div>
-      </header>
-      <!-- end header -->
-      
-      <div class="row">
-        <div class="col-md-3">
-            <ul class="list-unstyled">
-                <li>Offering</li>
-                <li>Tithe</li>
-                <li>Projects</li>
-                <li>Support</li>
+       </nav>
+       <div class="row d-flex m-2 p-3">
+         <div class="col-md-3 col-xsm-1 border col-sm-6">
+            <h3>Donation Options</h3>
+            <ul class="list-group">
+               <li class="list-group-item" id="mpesa">Mpesa</li>
+               <li class="list-group-item text-light" id="bank">Bank Details</li>
             </ul>
-        </div>
-        <div class="col-md-9">
-            
-        </div>
-    </div>
-      <div class="end bg-dark" style="bottom:0;">
-         <ul class="list-unstyled ">
-            <li class="text-light">Home</li>
-            <li class="text-light">Devotions</li>
-            <li class="text-light">Events</li>
-         </ul>
-      </div>
-     
-      <!-- Javascript files-->
-      
+           
+
+         </div>
+         <div class="col-md-9 col-sm-6">
+            <form action="" method="POST"  id="mform" class="border shadow m-2 p-3 ">
+               <h4>Donate through mpesa</h4>
+               {% csrf_token %}
+               <label for="phonenumber">Enter Phone Number:</label>
+               <input type="text" name="phonenumber" placeholder="e.g 07...." required><br>
+               <label for="amount">Enter amount:</label>
+               <input type="text" name="phonenumber" placeholder="e.g 07...." required><br>
+               <button class="btn btn-outline-success" id="donate">Donate</button>
+            </form>     
+            <div class="card" id="card">
+               <p class="card-title">Bank Details</p>
+               <p class="small-desc">
+                 Bank acct:##########<br>
+                 Bank name:############<br>
+                
+               <hr><br>
+               Thanks in advance
+               </p>
+               <div class="go-corner">
+                 <div class="go-arrow">→</div>
+               </div>
+             </div>
+         </div>
+       </div>
+       <script>
+         document.getElementById("mpesa").addEventListener("click",()=>{
+            if( document.getElementById("mform").style.display==="none"){
+            document.getElementById("mform").style.display="block";
+            }
+            else{
+               document.getElementById("mform").style.display="none";
+            }
+         })
+
+         document.getElementById("bank").addEventListener("click",()=>{
+            if(document.getElementById("card").style.display==="none"){
+               document.getElementById("card").style.display="block";
+            }
+            else{
+               document.getElementById("card").style.display="none";
+            }
+
+         })
+         document.getElementById("donate").addEventListener("click",()=>{
+            alert("check phone for the push notification");
+         })
+         let x=document.getElementById("mpesa")
+         let y=document.getElementById("bank")
+         y.addEventListener("click",()=>{
+            document.getElementById("bank").style.backgroundColor="green"
+         })
+         document.getElementById("bank").style.backgroundColor="green"
+      </script>
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="{% static 'core/js/custom.js' %}"></script>

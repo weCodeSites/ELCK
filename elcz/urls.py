@@ -23,3 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('', include("core.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "campus ministry"
+admin.site.site_title="campus ministry"

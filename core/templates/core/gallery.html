@@ -27,62 +27,93 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
       <style>
-         *{
-            margin: 0;
-            padding: 0;
-         }
-         .gallerycont{
-            max-width: 1224px;
-            width: 90%;
-            margin: auto;
-            padding: 40px 0;
-         }
-         .photogallery{
-            display: flex;
-            gap: 20px;
-         }
-         .gallerycolumn{
-            display: flex;
-            flex-direction: column;
-            flex-flow: dense;
-            gap: 20px;
-         }
-         .photo img{
-            width: 100%;
-            height: 100%;
-            border-radius: 7px;
-            object-fit: cover;
-            border:1px solid red;
-         }
-         @media(max-width:768px){
-            .photogallery{
-               flex-direction: column;
-            }
-         }
-         .end{
-            bottom:auto;
-         }
-         ul li{
-            display: flex;
-            gap: 30px;
-            margin: 30px;
-            left: 40%;
-         }
-         
+        /* Three image containers (use 25% for four, and 50% for two, etc) */
 
+          
+
+          
+          div.gallery img {
+            width: 100%;
+            height: 200px;
+          }
+          
+          div.desc {
+            padding: 15px;
+            text-align: center;
+          }
+          
+          * {
+            box-sizing: border-box;
+          }
+          
+          .responsive {
+            padding: 0 6px;
+            float: left;
+            width: 24.99999%;
+          }
+          
+          @media only screen and (max-width: 700px) {
+            .responsive {
+              width: 49.99999%;
+              margin: 6px 0;
+            }
+          }
+          
+          @media only screen and (max-width: 500px) {
+            .responsive {
+              width: 100%;
+            }
+          }
+          
+          .clearfix:after {
+            content: "";
+            display: table;
+            clear: both;
+          }
+          .now{
+                font-size: 14px;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                line-height: 1.80857;
+                font-weight: normal;
+                background: url(../images/bg1.avif); 
+                background-position: center;
+                background-repeat: no-repeat;
+          }
+          .img{
+            border-radius: 10px;
+
+          }
+          .desc{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+          }
+          .title{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+          }
+          .end{
+            position: fixed;
+            display: flex;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(13, 13, 13);
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            height: 100px;
+          }
       </style>
    </head>
    <!-- body -->
-   <body class="main-layout inner_page body ody">
+   <body class="main-layout inner_page now">
       <!-- loader  -->
       
       <!-- end loader -->
       <div id="mySidepanel" class="sidepanel">
          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-         <a class="active" href="{%url 'core:home'%}">Home</a>
+         <a  href="{%url 'core:home'%}">Home</a>
          <a href="{%url 'core:devotion'%}">weekly devotions</a>
          <a href="{%url 'core:events'%}">Events</a>
-         <a href="{%url 'core:gallery'%}">Gallery</a>
+         <a href="{%url 'core:gallery'%}" class="active">Gallery</a>
       </div>
       <!-- header -->
       <header>
@@ -106,35 +137,27 @@
             </div>
          </div>
       </header>
-      <!-- end header -->
-      <div class="gallerycont">
-         <title>OUR GALLERY</title>
-         
-         <div class="photogallery">
-            {% for i in images%}
-                  {% if forloop.counter0|divisibleby:3 %}
-                     <div class="gallerycolumn"></div>
-                  {% endif %}
-            <div class="gallerycolumn">
-               <div class="photo">
-                  <img src="{{i.image.url}}" alt="">
-               </div>
+      {% for i in images %}
+      <div class="responsive">
+        <div class="gallery shadow">
+            <img src="{{i.image.url}}" alt="{{i.description}}" class="img">
+            <h5 class="text-center title">{{i.title}}</h5>
+            <hr>
+          <div class="desc">{{i.description}}</div>
+        </div>
+      </div>
+      {%endfor %}
+      <div class="end bg-dark">
+        <div class="">
+            <div class="col-md-4">
+                <a href="" class="text-light m-2 p-2">Home</a>
+                <a href="" class="text-light m-2 p-2">Events</a>
+                <a href="" class="text-light m-2 p-2">Devotions</a>
             </div>
-            {% endfor %}
-         </div>
-         
+           
+        </div>
       </div>
-     
-      <div class="end bg-dark" style="bottom:0;">
-         <ul class="list-unstyled ">
-            <li class="text-light">Home</li>
-            <li class="text-light">Devotions</li>
-            <li class="text-light">Events</li>
-         </ul>
-      </div>
-     
-      <!-- Javascript files-->
-      
+      <div class="clearfix"></div>
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="{% static 'core/js/custom.js' %}"></script>
