@@ -28,6 +28,11 @@
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <style>
+         .row{
+            flex-flow: column-reverse;
+         }
+      </style>
    </head>
    <!-- body -->
    <body class="main-layout inner_page body">
@@ -69,14 +74,16 @@
 
    <h1 class="text-danger fw-bold text-center">EVENTS AND PROGRAMMES</h1>
    
-   <form class="example text-center m-2 p-2 " action="search/" method="POST">
-      <input type="text" class="rounded" name="search" value="{{search}}">
+   <form class="example text-center m-2 p-2 " action="{%url 'core:search'%}" method="">
+      {% csrf_token %}
+      <input type="search" class="rounded" name="what" value="{{what}}">
       <button class="btn btn-outline-dark ">search</button>
    </form>
    <div class="searchcontent" id="searchcontent">
 
    </div>
-      <section class="main-section">
+   <div class="row">
+      <section class="main-section col-md-8">
          {% for event in events  %}
                <div class="card">
                   <div class="card-body">
@@ -91,6 +98,10 @@
                </div>
          {% endfor %}
       </section>  
+      <section class="col-md-4">
+         <h3 class="text-center">search results</h3>
+      </section>
+   </div>
       <!-- footer -->
      
       <!-- Javascript files-->

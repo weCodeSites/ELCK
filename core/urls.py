@@ -13,7 +13,8 @@ urlpatterns = [
     path("devotion/",views.devotions,name="devotion"),
     path("gallery/",views.gallery,name="gallery"),
     path("events/",views.events,name="events"),
-    path("donate/",views.donations,name="donate")
+    path("donate/",views.donations,name="donate"),
+    path("search/",views.search,name="search")
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

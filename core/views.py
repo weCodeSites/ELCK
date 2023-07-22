@@ -39,11 +39,9 @@ def success(request):
 
 def events(request):
     events=Events.objects.all()
-    search=request.POST.get("search")
-    results=Events.objects.filter(Q(title__icontains=search) | Q(description__icontains=search))
-    context={"events":events}
-    return render(request,"core/events.html",context,locals())
-
+    results=Events.objects.filter(Q(title__icontains=query))
+    query=request.GET['what']
+    return render(request,"core/events.html",locals())
 def gallery(request):
     images=Gallery.objects.all()
     print(len(images))
@@ -56,3 +54,8 @@ def devotions(request):
 
 def donations(request):
     return render(request,"core/donate.html")
+
+def search(request):
+    query=request.GET['what']
+    results=Events.objects.filter(Q(title__icontains=query))
+    return render(request,"core/search.html",locals())
