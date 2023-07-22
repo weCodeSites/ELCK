@@ -39,8 +39,10 @@ def success(request):
 
 def events(request):
     events=Events.objects.all()
+    search=request.POST.get("search")
+    results=Events.objects.filter(Q(title__icontains=search) | Q(description__icontains=search))
     context={"events":events}
-    return render(request,"core/events.html",context)
+    return render(request,"core/events.html",context,locals())
 
 def gallery(request):
     images=Gallery.objects.all()

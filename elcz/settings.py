@@ -22,8 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 import os
-
-SECRET_KEY ="django-insecure-_5u_cg72sg(9c1slro)gy!mo%t&mzgqcxubh0ry0cmzaqc6dme"
+import os
+import pymysql
+import MySQLdb
+from dotenv import load_dotenv
+# pymysql.install_as_MySQLdb()
+load_dotenv()
+SECRET_KEY =os.environ.get("SECURITY_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -82,12 +87,12 @@ WSGI_APPLICATION = 'elcz.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 # Password validation
@@ -107,6 +112,18 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+DATABASES = {
+  'default': {
+    'ENGINE': 'django_psdb_engine',
+    'NAME': os.environ.get('DB_NAME'),
+    'HOST': os.environ.get('DB_HOST'),
+    'PORT': os.environ.get('DB_PORT'),
+    'USER': os.environ.get('DB_USER'),
+    'PASSWORD': os.environ.get('DB_PASSWORD'),
+    'OPTIONS': {'ssl': {'ssl_ca': os.environ.get('MYSQL_ATTR_SSL_CA')}, 'charset': 'utf8mb4'}
+  }
+}
+
 
 
 # Internationalization

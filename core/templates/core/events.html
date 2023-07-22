@@ -68,6 +68,14 @@
    {% comment %} cards {% endcomment %}
 
    <h1 class="text-danger fw-bold text-center">EVENTS AND PROGRAMMES</h1>
+   
+   <form class="example text-center m-2 p-2 " action="search/" method="POST">
+      <input type="text" class="rounded" name="search" value="{{search}}">
+      <button class="btn btn-outline-dark ">search</button>
+   </form>
+   <div class="searchcontent" id="searchcontent">
+
+   </div>
       <section class="main-section">
          {% for event in events  %}
                <div class="card">
