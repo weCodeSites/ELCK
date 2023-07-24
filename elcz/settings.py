@@ -32,9 +32,11 @@ SECRET_KEY =os.environ.get("SECRET_KEY")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =True
 
-ALLOWED_HOSTS = ['campus-ministry.onrender.com','127.0.0.1']
+
+ALLOWED_HOSTS = (['campus-ministry.onrender.com','127.0.0.1',
+    'localhost'])
 
 
 # Application definition
@@ -162,9 +164,4 @@ import os
 MEDIA_URL="/media/"
 MEDIA_ROOT =os.path.join(BASE_DIR,"media")
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'hoodcodesapps@gmail.com'
-EMAIL_HOST_PASSWORD = '1@mh00d2'
+

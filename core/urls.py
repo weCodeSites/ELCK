@@ -17,6 +17,6 @@ urlpatterns = [
     path("search/",views.search,name="search")
 
     
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 # path("about/",views.about,name="about"),
 #path("join/",views.member_join,name="join")
