@@ -18,6 +18,11 @@
       <!-- style css -->
       <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
       <!-- responsive-->
+      {% comment %} favicon {% endcomment %}
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'core/images/site.webmanifest' %}">
       <link rel="stylesheet" href="{% static 'core/css/responsive.css' %}">
       <!-- awesome fontfamily -->
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" />
@@ -106,31 +111,17 @@
       <!-- end header -->
          <div class="devotion">
             <div class="devrow">
-               <div class="devcard">
-                  <p class="fs-20px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quos odit vel veritatis corporis aliquam deserunt neque temporibus, eligendi soluta, ducimus necessitatibus vitae excepturi repudiandae consectetur sit ipsa tempora. Quo?</p>
-                  <hr>
-                  <p class="text-center">Date</p>
-               </div>
-               <div class="devcard">
-                  <span class="new text-light">NEW</span>
-                  <p class="fs-20px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quos odit vel veritatis corporis aliquam deserunt neque temporibus, eligendi soluta, ducimus necessitatibus vitae excepturi repudiandae consectetur sit ipsa tempora. Quo?</p>
-                  <hr>
-                  <p class="text-center">Date</p>
-               </div>
-
-               <div class="devcard">
-                  <span class="new text-light">NEW</span>
-                  <p class="fs-20px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quos odit vel veritatis corporis aliquam deserunt neque temporibus, eligendi soluta, ducimus necessitatibus vitae excepturi repudiandae consectetur sit ipsa tempora. Quo?</p>
-                  <hr>
-                  <p class="text-center">Date</p>
-               </div>
-
-               <div class="devcard">
-                  <span class="new text-light">NEW</span>
-                  <p class="fs-20px">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat quos odit vel veritatis corporis aliquam deserunt neque temporibus, eligendi soluta, ducimus necessitatibus vitae excepturi repudiandae consectetur sit ipsa tempora. Quo?</p>
-                  <hr>
-                  <p class="text-center">Date</p>
-               </div>
+               {% for devotion in devotions %}
+                  <div class="devcard">
+                     {% if devotion.new %}<span class="new text-light">new</span>{% endif %}
+                     <h5 class="text-center">{{devotion.title}}</h5>
+                     <p class="fs-20px">{{devotion.description}}</p>
+                     <hr>
+                     <p class="text-center">{{description.title}}</p>
+                  </div>
+               {%empty%} 
+               <p class="text-center">oops we forgot to add some devotions</p>
+               {% endfor %}
                
             </div>
          </div>

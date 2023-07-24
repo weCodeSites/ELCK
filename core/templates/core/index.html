@@ -13,8 +13,12 @@
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="icon"  type="image/gif" href="{% static  'core/images/favicon.png' %}" sizes="16x16">
+  {% comment %} favicon {% endcomment %}
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'core/images/site.webmanifest' %}">
+    
 
       <link rel="stylesheet" href="{% static 'core/css/bootstrap.min.css' %}">
       <!-- style css -->
@@ -148,7 +152,7 @@
       </header>
 
          {% comment %} messages {% endcomment %}
-         {% include "core/messages.html" %}
+            {% include "core/messages.html" %}
       {% comment %} about info {% endcomment %}
                
       <div class="sports">
@@ -275,7 +279,7 @@
                </div>
                <div class="col-md-12">
                   <div class="club_btn">
-                     <a class="read_more " href="Javascript:void(0)">Donate</a>
+                     <a class="read_more " href="{% url 'core:donate' %}">Donate</a>
                      {% comment %} <a class="read_more" href="#" >Join us</a> {% endcomment %}
                      <button id="joinus" class="read_more" id="joinus">join us</button>
                            {% include "core/messages.html" %}

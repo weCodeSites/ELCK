@@ -10,6 +10,11 @@
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
       <title>elcz ministries</title>
+      {% comment %} favicon {% endcomment %}
+      <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/images/apple-touch-icon.png' %}">
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/images/favicon-32x32.png' %}">
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/images/favicon-16x16.png' %}">
+      <link rel="manifest" href="{% static 'core/images/site.webmanifest' %}">
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -125,6 +130,21 @@
          transition: all 0.5s ease-out;
          color: #33f561;
        }
+       .navbar-toggler-icon{
+        outline: none;
+       }
+       .end{
+        position: fixed;
+        display: flex;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: rgb(13, 13, 13);
+        color: white;
+        text-align: center;
+        margin-top: 30px;
+        height: 100px;
+      }
        
    </style>
 
@@ -138,57 +158,53 @@
            <div class="collapse navbar-collapse" id="navbarSupportedContent">
              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                <li class="nav-item">
-                 <a class="nav-link active" aria-current="page" href="#">Home</a>
+                 <a class="nav-link active" aria-current="page" href="{% url 'core:home' %}">Home</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="#">Events</a>
+                 <a class="nav-link" href="{% url 'core:events' %}">Events</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="#">Weekly Devotion</a>
+                  <a class="nav-link" href="{% url 'core:devotion' %}">Weekly Devotion</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Gallery</a>
+                  <a class="nav-link" href="{% url 'core:gallery' %}">Gallery</a>
                 </li>
              </ul>
            </div>
          </div>
        </nav>
        <div class="row d-flex m-2 p-3">
-         <div class="col-md-3 col-xsm-1 border col-sm-6">
-            <h3>Donation Options</h3>
-            <ul class="list-group">
-               <li class="list-group-item" id="mpesa">Mpesa</li>
-               <li class="list-group-item text-light" id="bank">Bank Details</li>
-            </ul>
-           
+            <div class="col-md-3 col-xsm-1 border col-sm-6">
+                <h3>Donation Options</h3>
+                <ul class="list-group">
+                  <li class="list-group-item" id="mpesa">Mpesa</li>
+                  <li class="list-group-item" id="bank">Bank Details</li>
+                </ul>
+              
 
-         </div>
-         <div class="col-md-9 col-sm-6">
-            <form action="" method="POST"  id="mform" class="border shadow m-2 p-3 ">
-               <h4>Donate through mpesa</h4>
-               {% csrf_token %}
-               <label for="phonenumber">Enter Phone Number:</label>
-               <input type="text" name="phonenumber" placeholder="e.g 07...." required><br>
-               <label for="amount">Enter amount:</label>
-               <input type="text" name="phonenumber" placeholder="e.g 07...." required><br>
-               <button class="btn btn-outline-success" id="donate">Donate</button>
-            </form>     
-            <div class="card" id="card">
-               <p class="card-title">Bank Details</p>
-               <p class="small-desc">
-                 Equity Bank acct:##########<br>
-                 Bank name:Equity<br>
-                
-               <hr><br>
-               Thanks in advance
-               </p>
-               <div class="go-corner">
-                 <div class="go-arrow">→</div>
-               </div>
-             </div>
-         </div>
-       </div>
-       <div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div id="mform border">
+                  <div><img src="{% static 'core/images/mpesa.png' %}" width="200px" height="100px" ></div>
+                  <div class="fs-30px">PAYBILL: #####</div>
+                  <div>ACCOUNT NAME: campus donation</div>
+                </div>    
+                <hr>
+                <div id="bank">
+                  <div><img src="{% static 'core/images/bank.png' %}" width="200px" height="100px" ></div>
+                  <div class="fw-30px">Account number: #####</div>
+                  <div>ACCOUNT NAME: campus donation</div>
+                </div>   
+            </div>
+            <div class="col-md-3 " >
+              <div><h3>donation contacts</h3></div>
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item" id="">Treasurer: +254....</li>
+                  <li class="list-group-item" id="">Regional manager: +254...</li>
+                </ul>
+              </div>
+            </div>
 
        </div>
        <script>
@@ -220,6 +236,20 @@
          })
          document.getElementById("bank").style.backgroundColor="green"
       </script>
+      <div class="end bg-dark">
+        <div class="col-md-4">
+            <a href="{%url 'core:home'%}" class="text-light m-2 p-2">Home</a>
+            <a href="{%url 'core:events'%}" class="text-light m-2 p-2">Events</a>
+            <a href="{%url 'core:devotion'%}" class="text-light m-2 p-2">Devotions</a>
+        </div>
+        <div class="col-md-8">
+          <ul>
+            <li class="text-light">call us: +254.....</li>
+            <li class="text-light">Email us at:</li>
+            <li class="text-light">location: </li>
+          </ul>
+        </div>
+      </div>
        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>

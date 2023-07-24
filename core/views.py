@@ -39,23 +39,29 @@ def success(request):
 
 def events(request):
     events=Events.objects.all()
-    results=Events.objects.filter(Q(title__icontains=query))
-    query=request.GET['what']
+    if request.method =="POST":
+        query=request.POST.get('search')
+        print(query)
+        results=Events.objects.filter(Q(title__contains=query))
+        if results:
+            messages.success(request,"results found")
+        else:
+            messages.error(request,"results not found")
     return render(request,"core/events.html",locals())
 def gallery(request):
     images=Gallery.objects.all()
-    print(len(images))
     return render(request,"core/gallery.html",locals())
     
 
 def devotions(request):
     devotions=WeeklyDevotion.objects.all()
-    return render(request,"core/devotion.html")
+    return render(request,"core/devotion.html",locals())
 
 def donations(request):
     return render(request,"core/donate.html")
 
 def search(request):
-    query=request.GET['what']
-    results=Events.objects.filter(Q(title__icontains=query))
-    return render(request,"core/search.html",locals())
+    pass
+#     query=request.GET['what']
+#     results=Events.objects.filter(Q(title__icontains=query))
+#     return render(request,"core/search.html",locals())

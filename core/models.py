@@ -4,7 +4,7 @@ from django.db import models
 class Members(models.Model):
     firstname=models.CharField(max_length=200)
     lastname=models.CharField(max_length=200)
-    phonenumber=models.IntegerField()
+    phonenumber=models.TextField(default="")
     county=models.TextField(default="")
     college=models.TextField(default="")
     def __str__(self):
