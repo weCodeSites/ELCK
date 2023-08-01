@@ -40,3 +40,15 @@ class Events(models.Model):
     class Meta:
         verbose_name_plural="Events"
 
+class Sermon(models.Model):
+    title=models.CharField(max_length=60)
+    sermon=models.TextField()
+    week=models.IntegerField()
+
+########
+#sunday sermon
+
+#######
+##questions
+
+##lcms.org

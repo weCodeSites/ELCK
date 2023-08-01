@@ -149,7 +149,7 @@
       {% for i in images %}
       <div class="responsive">
         <div class="gallery shadow">
-            <img src="{% get_media_prefix %}{{uploaded_file}}" alt="{{i.description}}" class="img">
+            <img src="{% get_media_prefix %}{{i.image}}" alt="{{i.description}}" class="img">
             <h5 class="text-center title">{{i.title}}</h5>
             <hr>
           <div class="desc">{{i.description}}</div>

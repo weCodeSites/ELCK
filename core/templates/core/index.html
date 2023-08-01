@@ -136,7 +136,7 @@
                <div class="row d_flex">
                   <div class="col-sm-3">
                      <div class="logo">
-                        <a href="{%url 'core:home'%}"><img src="{% static 'core/images/elck.png' %}" /></a>
+                        <a href="{%url 'core:home'%}"><img src="" /></a>
                      </div>
                   </div>
                   <div class="col-sm-9">
@@ -160,15 +160,17 @@
             <div class="row">
                <div class="col-md-10 offset-md-1">
                   <div class="titlepage text_align_center">
-                     <h2>Evangelical Lutheran Church In Kenya Lutheran Campus Ministry (LCM)</h2>
+                     <h2>Evangelical Lutheran Church In Kenya  Campus Ministry (LCM)</h2>
                      <p>"Bringing Christ to the people and people to Christ through the means of grace"
 
                      </p>
+                     {% comment %} logo {% endcomment %}
+                     <img src="{% static 'core/images/logocm.jpg' %}" length="150" width="150"></br></br>
                      <button id="us" class="read_more">about</button>
                      <div class="about-card" style="display:none;" id="aboutcard">
                         <div class="about-card-header">About Campus ministries</div>
                            <div class="about-card-body">
-                              <p class="text-danger">Evangelical Lutheran Church In Kenya Lutheran Campus Ministry (LCM)</p><hr>
+                              <p class="text-danger">Evangelical Lutheran Church In Kenya  Campus Ministry (LCM)</p><hr>
                               <p>"The Lutheran campus ministry LCM is a recent joint initiative of the Evangelical Lutheran Church in Kenya and Swedish Lutheran Evangelical association in Finland. This ministry endeavours to reach out especially to the ELCK students in their higher learning institution's environments i.e colleges and universities. The need and thought for such a ministry has existed for a long time due to the enormous challenges that the students go through when they leave their home environments. The focus of the ministry is Gospel centred there by bringing Christ to the people and people to Christ through the means of grace.</p>
                               <button class="read_more" id="closeabtinfo">Done </button>
                            </div>
@@ -246,7 +248,7 @@
                            <div class="container">
                               <div class="carousel-caption posi_in">
                                  <div class="trannir_text">
-                                    <i><img src="{% static 'core/images/elck.png' %}" alt="#"/></i>
+                                    <i><img src="{% static 'core/images/logocm.jpg' %}" alt="#" length="150" width="150"/></i>
                                    
                                  </div>
                               </div>
