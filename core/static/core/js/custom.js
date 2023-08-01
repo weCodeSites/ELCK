@@ -107,4 +107,4 @@ function closeNav() {
 }
 
 //kuonyesha about info
-
+document.getElementById("year").innerHTML=new Date.getFullYear()

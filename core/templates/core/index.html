@@ -138,14 +138,14 @@
                <div class="row d_flex">
                   <div class="col-sm-3">
                      <div class="logo">
-                        <a href="{%url 'core:home'%}"><img src="" /></a>
+                        <a href="{%url 'core:home'%}"><img src="{% static 'core/images/logocm2.png' %}" /></a>
                      </div>
                   </div>
                   <div class="col-sm-9">
                      <ul class="email text_align_right">
                         <li><a href="/admin"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        <li><a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a></li>
                         <li> <button class="openbtn" onclick="openNav()"><img src="{% static 'core/images/menu_btn.png' %}"></button></li>
+                        
                      </ul>
                   </div>
                </div>
@@ -169,6 +169,8 @@
                      {% comment %} logo {% endcomment %}
                      <img src="{% static 'core/images/logocm.jpg' %}" length="150" width="150"></br></br>
                      <button id="us" class="read_more">about</button>
+                     <li class="read_more "><a href="https://files.lcms.org/file/preview/A5F38289-C7B5-4E54-8EF9-F3C7CFAF6BB7" class=" text-light" target="_blank"> seasons calendar</a></li>
+                    
                      <div class="about-card" style="display:none;" id="aboutcard">
                         <div class="about-card-header">About Campus ministries</div>
                            <div class="about-card-body">
@@ -186,9 +188,7 @@
                   <div class="sports_main text_align_center">
                      <figure><img class="" src="{% static 'core/images/el2.png' %}" alt="#"/></figure>
                      <div class="sports_text">
-                        <h3 class="dark3">Event 2</h3>
-                        <p>vailable, but the majority have<br> suffered alteration in some <br>form, by injected humour, or <br> randomised words which</p>
-                        <a class="read_more" href="sports.html">Read More</a>
+                        {% comment %} event desc {% endcomment %}
                      </div>
                   </div>
                </div>
@@ -196,9 +196,7 @@
                   <div class="sports_main text_align_center">
                      <figure><img src="{% static 'core/images/el5.jpg' %}" alt="#"/></figure>
                      <div class="sports_text">
-                        <h3>Event 3</h3>
-                        <p>vailable, but the majority have suffered alteration in some form, by injected humour, or randomised words which</p>
-                        <a class="read_more" href="sports.html">Read More</a>
+                        {% comment %} event descr {% endcomment %}
                      </div>
                   </div>
                </div>
@@ -251,7 +249,7 @@
                               <div class="carousel-caption posi_in">
                                  <div class="trannir_text">
                                     <i><img src="{% static 'core/images/logocm.jpg' %}" alt="#" length="150" width="150"/></i>
-                                   
+                                    <a href="" class="read_more text-light"> church calendar</a>
                                  </div>
                               </div>
                            </div>
@@ -351,7 +349,7 @@
                         <ul>
                            <li><a href="{%url 'core:home'%}">Home</a></li>
                            <li><a href="about.html">About</a></li>
-                           
+                           <a href="" class="read_more text-light"> church calendar</a>
                            <li><a href="{%url 'core:contact'%}">Contact</a></li>
                         </ul>
                      </div>
@@ -362,7 +360,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-8 offset-md-2">
-                        <p>© 2023 All Rights Reserved.</p>
+                        <p>© <script>document.write(new Date().getFullYear());</script> All Rights Reserved.</p>
                      </div>
                   </div>
                </div>
@@ -372,7 +370,7 @@
       <script>
          let join_form=document.getElementById("join_form")
          join_form.style.display="none"
-         document.getElementById("joinus").addEventListener("click",function(e){
+         document.getElementById("joinus").addEventListener("click",function(){
             e.preventDefault()
             if (document.getElementById("join_form").style.display === 'none') {
                document.getElementById("join_form").style.display = 'block';
@@ -408,6 +406,7 @@
             document.getElementById("aboutcard").style.display="none";
             document.getElementById("us").innerHTML="About us";
          });
+         
       
       </script>
       <!-- end footer -->

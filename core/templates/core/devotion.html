@@ -111,6 +111,17 @@
       <!-- end header -->
          <div class="devotion">
             <div class="devrow">
+               {% for sermon in sermons %}
+                  <div class="devcard">
+                     <h5 class="text-center">{{sermon.title}}</h5>
+                     <p class="fs-20px">{{sermon.sermon}}</p>
+                     <hr>
+                     <p class="text-center">{{sermon.week}}</p>
+                  </div>
+               {%empty%} 
+               <p class="text-center">No sunday sermon added yet</p>
+               {% endfor %}
+               
                {% for devotion in devotions %}
                   <div class="devcard">
                      {% if devotion.new %}<span class="new text-light">new</span>{% endif %}
@@ -165,7 +176,7 @@
                   <div class="container">
                      <div class="row">
                         <div class="col-md-8 offset-md-2">
-                           <p>© 2020 All Rights Reserved. </p>
+                           <p>© <script>document.write(new Date().getFullYear());</script> All Rights Reserved.</p>
                         </div>
                      </div>
                   </div>
