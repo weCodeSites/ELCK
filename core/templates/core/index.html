@@ -368,9 +368,9 @@
          </div>
       </footer>
       <script>
-         let join_form=document.getElementById("join_form")
-         join_form.style.display="none"
-         document.getElementById("joinus").addEventListener("click",function(){
+         
+         document.getElementById("join_form").style.display="none"
+         document.getElementById("joinus").addEventListener("click",function(e){
             e.preventDefault()
             if (document.getElementById("join_form").style.display === 'none') {
                document.getElementById("join_form").style.display = 'block';
