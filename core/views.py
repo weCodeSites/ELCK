@@ -65,3 +65,6 @@ def search(request):
 #     query=request.GET['what']
 #     results=Events.objects.filter(Q(title__icontains=query))
 #     return render(request,"core/search.html",locals())
+
+def calendar(request):
+    return render(request,"core/calendar.html")
