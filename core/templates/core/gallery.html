@@ -148,49 +148,16 @@
       </header>
       <p class="text-center">OUR GALLERY</p>
       <hr><br>
-   
+      
       <div class="responsive">
         <div class="gallery shadow">
-            <img src="{% static 'core/images/1.jpeg' %}" alt="" class="img">
+            <img src="{% static 'core/images/1.jpeg' %}" alt="{{i.description}}" class="img">
+            <h5 class="text-center title">{{i.title}}</h5>
             <hr>
+          <div class="desc">{{i.description}}</div>
         </div>
       </div>
-
-      <div class="responsive">
-        <div class="gallery shadow">
-            <img src="{% static 'core/images/2.jpeg' %}" alt="" class="img">
-            <hr>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery shadow">
-            <img src="{% static 'core/images/1.jpeg' %}" alt="" class="img">
-            <hr>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery shadow">
-            <img src="{% static 'core/images/1.jpeg' %}" alt="" class="img">
-            <hr>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery shadow">
-            <img src="{% static 'core/images/1.jpeg' %}" alt="" class="img">
-            <hr>
-        </div>
-      </div>
-
-      <div class="responsive">
-        <div class="gallery shadow">
-            <img src="{% static 'core/images/1.jpeg' %}" alt="" class="img">
-            <hr>
-        </div>
-      </div>
- 
+      
       <div class="end bg-dark">
             <div class="col-md-4">
                 <a href="{%url 'core:home'%}" class="text-light m-2 p-2">Home</a>
