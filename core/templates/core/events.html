@@ -37,6 +37,18 @@
          .row{
             flex-flow: column-reverse;
          }
+         .end{
+            position: fixed;
+            display: flex;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(13, 13, 13);
+            color: white;
+            text-align: center;
+            margin-top: 30px;
+            height: 80px;
+          }
       </style>
    </head>
    <!-- body -->
@@ -124,7 +136,22 @@
       <hr></br>
    </div>
       <!-- footer -->
-      <p style="justify-content:center;">© <script>document.write(new Date().getFullYear());</script> All Rights Reserved.</p>
+      <div class="end bg-dark">
+         <div class="col-md-4">
+             <a href="{%url 'core:home'%}" class="text-light m-2 p-2">Home</a>
+             <a href="{%url 'core:events'%}" class="text-light m-2 p-2">Events</a>
+             <a href="{%url 'core:devotion'%}" class="text-light m-2 p-2">Devotions</a>
+             <a href="{%url 'core:donate'%}" class="text-light m-2 p-2">Donate</a>
+         </div>
+         <div class="col-md-8">
+           <ul>
+             <li class="text-light">call us:&nbsp;&nbsp;  +254.....</li>
+             <li class="text-light">Email us at: &nbsp; &nbsp; contact@elckcampus.org</li>
+             <li class="text-light">location: </li>
+             <p>© <script>document.write(new Date().getFullYear());</script></p>
+           </ul>
+         </div>
+      </div>
       <!-- Javascript files-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
