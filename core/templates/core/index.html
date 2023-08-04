@@ -260,7 +260,7 @@
                            <div class="container">
                               <div class="carousel-caption posi_in">
                                  <div class="trannir_text">
-                                    <i><img src="{% static 'core/images/21.jpeg' %}" alt="#" length="150" width="150"/></i>
+                                    <i><img src="{% static 'core/images/21.jpeg' %}" alt="#" length="" width=""/></i>
                                     
                                  </div>
                               </div>
@@ -271,7 +271,7 @@
                            <div class="container">
                               <div class="carousel-caption posi_in">
                                  <div class="trannir_text">
-                                    <i><img src="{% static 'core/images/22.jpeg' %}" alt="#" length="150" width="150"/></i>
+                                    <i><img src="{% static 'core/images/22.jpeg' %}" alt="#" length="" width="" class="img_responsive"/></i>
                                     
                                  </div>
                               </div>
@@ -282,7 +282,7 @@
                            <div class="container">
                               <div class="carousel-caption posi_in">
                                  <div class="trannir_text">
-                                    <i><img src="{% static 'core/images/23.jpeg' %}" alt="#" length="150" width="150"/></i>
+                                    <i><img src="{% static 'core/images/23.jpeg' %}" alt="#" length="" width="" class="img_responsive"/></i>
                                     
                                  </div>
                               </div>
@@ -346,7 +346,19 @@
                      
                   </div>
                </div>
-               {% comment %}  {% endcomment %}
+               {% comment %} <form action="mailto:contact@elckcampus.org"
+                     method="POST"
+                     enctype="multipart/form-data"
+                     name="EmailForm" class="text-center border py-3 mt-4" style="justify-content:center;">
+                     {% csrf_token %}
+                        Name:<br>
+                        <input type="text"  name="Contact-Name"><br><br>
+                        Email:<br>
+                        <input type="email" name="Contact-Email"><br><br> 
+                        Message:<br> 
+                        <input type="text" name="subject"></br><br><br>
+                        <button type="submit" value="Submit" class="btn btn-outline-success">Send</button>
+               </form>   {% endcomment %}
 
             </div>
          </div>
@@ -372,7 +384,7 @@
                            <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/call.png' %}" alt="#"/>  Call +254713378817
                               </a>
                            </li>
-                           <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/mall.png' %}" alt="#"/> demo@gmail.com
+                           <li> <a href="#"><img src="{% static 'core/images/mall.png' %}" alt="#"/> mail us
                               </a>
                            </li>
                         </ul>
@@ -382,9 +394,9 @@
                      <div class="menu_bottom text_align_center">
                         <ul>
                            <li><a href="{%url 'core:home'%}">Home</a></li>
-                           <li><a href="about.html">About</a></li>
-                           <a href="" class="read_more text-light"> church calendar</a>
-                           <li><a href="{%url 'core:contact'%}">Contact</a></li>
+                           <li><a href="{%url 'core:events'%}">Events</a></li>
+                           <li><a href="{%url 'core:gallery'%}">Gallery</a></li>
+                           <li><a href="{%url 'core:devotion'%}">Sermons</a></li>
                         </ul>
                      </div>
                   </div>

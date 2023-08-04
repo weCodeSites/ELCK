@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>ELCK | devotion</title>
+      <title>campus | devotion</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -129,8 +129,6 @@
                      {% if devotion.new %}<span class="new text-light">new</span>{% endif %}
                      <h5 class="text-center">{{devotion.title}}</h5>
                      <p class="fs-20px">{{devotion.description}}</p>
-                     <hr>
-                     <p class="text-center">{{description.title}}</p>
                   </div>
                {%empty%} 
                <p class="text-center">oops we forgot to add some devotions</p>
@@ -153,10 +151,10 @@
                         </ul>
                         <div class="conta text_align_center">
                            <ul>
-                              <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/call.png' %}" alt="#"/>Call +254713378817
+                              <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/call.png' %}" alt="#"/>Call :+254713378817
                                  </a>
                               </li>
-                              <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/mall.png' %}" alt="#"/> demo@gmail.com
+                              <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/mall.png' %}" alt="#"/> contact@elckcampus.org
                                  </a>
                               </li>
                            </ul>
@@ -166,9 +164,9 @@
                         <div class="menu_bottom text_align_center">
                            <ul>
                               <li><a href="{%url 'core:home'%}">Home</a></li>
-                             
-                              
-                              <li><a href="{%url 'core:contact'%}">Contact</a></li>
+                              <li><a href="{%url 'core:contact'%}">Events</a></li>
+                              <li><a href="{%url 'core:contact'%}">Devotions</a></li>
+                              <li><a href="{%url 'core:contact'%}">Sermons</a></li>
                            </ul>
                         </div>
                      </div>
