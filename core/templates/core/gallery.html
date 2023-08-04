@@ -129,25 +129,25 @@
          <a href="{%url 'core:gallery'%}" class="active">Gallery</a>
       </div>
       <!-- nav -->
-      <nav class="navbar navbar-expand-lg bg-success text-light">
+      <nav class="navbar navbar-expand-lg">
         <div class="">
-          <a class="navbar-brand " href="#">campus ministry</a>
+          <a class="navbar-brand " href="/">campus ministry</a>
           <button class="" type="button" aria-controls="navbarSupportedContent" onclick="openNav()" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-            <span class="navbar-toggler-icon"></span>
+            <img src="{% static 'core/images/menu_btn.png' %}">
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'core:home' %}">Home</a>
+                <a class="nav-link " aria-current="page" href="{% url 'core:home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'core:events' %}">Events</a>
+                <a class="nav-link " href="{% url 'core:events' %}">Events</a>
               </li>
               <li class="nav-item">
-                 <a class="nav-link" href="{% url 'core:devotion' %}">Weekly Devotion</a>
+                 <a class="nav-link " href="{% url 'core:devotion' %}">Weekly Devotion</a>
                </li>
                <li class="nav-item">
-                 <a class="nav-link" href="{% url 'core:gallery' %}">Gallery</a>
+                 <a class="nav-link active" class="active" href="{% url 'core:gallery' %}">Gallery</a>
                </li>
             </ul>
           </div>
