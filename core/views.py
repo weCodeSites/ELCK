@@ -1,10 +1,11 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Members,Events,Gallery,WeeklyDevotion
+from .models import Members,Events,Gallery,WeeklyDevotion,Sermon
 from django.contrib import messages
 from django.db.models import Q
 # Create your views here.
 def home(request):
+    sermons=Sermon.objects.all()
     return render(request,"core/index.html")
 
 # def about(request):
