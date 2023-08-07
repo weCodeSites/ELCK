@@ -94,24 +94,11 @@
           .title{
             font-family:Verdana, Geneva, Tahoma, sans-serif;
           }
-          .end{
-            position: fixed;
-            display: flex;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background-color: rgb(13, 13, 13);
-            color: white;
-            text-align: center;
-            margin-top: 30px;
-            height: 80px;
-          }
+          
           .head-tag{
             overflow: hidden;
           }
-          .images{
-            padding-bottom:70px;
-          }
+          
           @media screen (min-width:998px) {
             #nav{
               display:none;
@@ -162,11 +149,11 @@
       <section class="py-2 images">
         <div class="container test-center ">
           <h3 class="heading mb-sm-5 mb-4 text-center read_more ml-3"> Our gallery</h3>
-          <img src="{% static 'core/images/logocm2.png' %}">
+          <img src="{% static 'core/images/logocm2.png' %}" width="">
         </div>
       </section>
       <section>
-        <div class="album py-5 bg-body-tertiary ml-1 mr-1">
+        <div class="album py-5 bg-body-tertiary">
           <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div class="col">
