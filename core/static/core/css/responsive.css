@@ -17,6 +17,9 @@ File Name: responsive.css
     .menu_bottom li {
         padding: 0 26px;
     }
+    #icon{
+        display:none;
+    }
     
 }
 

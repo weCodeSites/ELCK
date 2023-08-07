@@ -39,7 +39,7 @@
           
           div.gallery img {
             width: 100%;
-            {% comment %} height: 200px; {% endcomment %}
+           
           }
           
           div.desc {
@@ -112,6 +112,11 @@
           .images{
             padding-bottom:70px;
           }
+          @media screen (min-width:998px) {
+            #nav{
+              display:none;
+            }
+          }
       </style>
    </head>
    <!-- body -->
@@ -133,12 +138,12 @@
         <div class="">
           <a class="navbar-brand " href="/">campus ministry</a>
           <button class="" type="button" aria-controls="navbarSupportedContent" onclick="openNav()" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
-            <img src="{% static 'core/images/menu_btn.png' %}">
+            <img src="{% static 'core/images/menu_btn.png' %}" class="text-right" id="icon">
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="{% url 'core:home' %}">Home</a>
+                <a class="nav-link text-" aria-current="page" href="{% url 'core:home' %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="{% url 'core:events' %}">Events</a>
@@ -161,7 +166,7 @@
         </div>
       </section>
       <section>
-        <div class="album py-5 bg-body-tertiary ml-4">
+        <div class="album py-5 bg-body-tertiary ml-1 mr-1">
           <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
               <div class="col">
@@ -300,7 +305,7 @@
           </div>
         </div>    
       </section>
-      <div class="end bg-dark">
+      {% comment %} <div class="end bg-dark">
             <div class="col-md-4">
                 <a href="{%url 'core:home'%}" class="text-light m-2 p-2">Home</a>
                 <a href="{%url 'core:events'%}" class="text-light m-2 p-2">Events</a>
@@ -315,8 +320,55 @@
                 <p>© <script>document.write(new Date().getFullYear());</script></p>
               </ul>
             </div>
-      </div>
-      {% comment %} <div class="clearfix"></div> {% endcomment %}
+      </div> {% endcomment %}
+      <footer>
+        <div class="footer">
+           <div class="container">
+              <div class="row">
+                 <div class="col-md-8 offset-md-2">
+                    <h3>Follow Us</h3>
+                    <ul class="social_icon text_align_center">
+                       <li> <a href="Javascript:void(0)"><i class="fa fa-facebook-f"></i></a></li>
+                       <li> <a href="Javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
+                       <li> <a href="Javascript:void(0)"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                       <li> <a href="Javascript:void(0)"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                       <li> <a href="Javascript:void(0)"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <div class="conta text_align_center">
+                       <ul>
+                          <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/call.png' %}" alt="#"/>Call :+254713378817
+                             </a>
+                          </li>
+                          <li> <a href="Javascript:void(0)"><img src="{% static 'core/images/mall.png' %}" alt="#"/> contact@elckcampus.org
+                             </a>
+                          </li>
+                       </ul>
+                    </div>
+                 </div>
+                 <div class="col-md-8 offset-md-2">
+                    <div class="menu_bottom text_align_center">
+                       <ul>
+                          <li><a href="{%url 'core:home'%}">Home</a></li>
+                          <li><a href="{%url 'core:events'%}">Events</a></li>
+                          <li><a href="{%url 'core:devotion'%}">Devotions</a></li>
+                          <li><a href="{%url 'core:gallery'%}">gallery</a></li>
+                       </ul>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           <div class="copyright text_align_center">
+              <div class="container">
+                 <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                       <p>© <script>document.write(new Date().getFullYear());</script> All Rights Reserved.</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+     </footer>
+
       <script src="{% static 'core/js/bootstrap.bundle.min.js' %}"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
       <script src="{% static 'core/js/custom.js' %}"></script>
