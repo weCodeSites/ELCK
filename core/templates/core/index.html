@@ -136,12 +136,12 @@
          <div class="head-top">
             <div class="container-fluid">
                <div class="row d_flex">
-                  <div class="col-sm-3">
+                  <!-- <div class="col-sm-3">
                      <div class="logo">
                         <a href="{%url 'core:home'%}"><img src="{% static 'core/images/logocm2.png' %}" height="150" width="150" /></a>
                      </div>
-                  </div>
-                  <div class="col-sm-9">
+                  </div> -->
+                  <div class="col-sm-12">
                      <ul class="email text_align_right">
                         <li><a href="/admin"><i class="fa fa-user" aria-hidden="true"></i></a></li>
                         <li> <button class="openbtn" onclick="openNav()"><img src="{% static 'core/images/menu_btn.png' %}"></button></li>
@@ -156,6 +156,14 @@
          {% comment %} messages {% endcomment %}
             {% include "core/messages.html" %}
       {% comment %} about info {% endcomment %}
+
+      <div class="container my-4">
+         <div class="row-cols-1">
+            <div class="col justify-content-center mx-auto">
+               <a href="{%url 'core:home'%}"><img src="{% static 'core/images/logocm2.png' %}" height="150" width="150" /></a>
+            </div>
+         </div>
+      </div>
                
       <div class="sports">
          <div class="container">
@@ -176,7 +184,7 @@
                         <div class="about-card-header">About Campus ministries</div>
                            <div class="about-card-body">
                               <p class="text-danger">Evangelical Lutheran Church In Kenya  Campus Ministry (LCM)</p><hr>
-                              <p>"The Lutheran campus ministry LCM is a recent joint initiative of the Evangelical Lutheran Church in Kenya and Swedish Lutheran Evangelical association in Finland. This ministry endeavours to reach out especially to the ELCK students in their higher learning institution's environments i.e colleges and universities. The need and thought for such a ministry has existed for a long time due to the enormous challenges that the students go through when they leave their home environments. The focus of the ministry is Gospel centred there by bringing Christ to the people and people to Christ through the means of grace.</p>
+                              <p>"The Lutheran campus ministry LCM is a recent  initiative of the Evangelical Lutheran Church in Kenya. This ministry endeavours to reach out especially to the ELCK students in their higher learning institution's environments i.e colleges and universities. The need and thought for such a ministry has existed for a long time due to the enormous challenges that the students go through when they leave their home environments. The focus of the ministry is Gospel centred there by bringing Christ to the people and people to Christ through the means of grace.</p>
                               <button class="read_more" id="closeabtinfo">Done </button>
                            </div>
                         </div>
